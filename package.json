@@ -1,0 +1,24 @@
+{
+  "name": "builtin.language-basics-xml",
+  "version": "0.0.0-dev",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "test-syntax-highlighting",
+    "build": "node scripts/build.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^2.7.1",
+    "typescript": "^4.7.4",
+    "@lvce-editor/package-extension": "^0.0.4",
+    "@lvce-editor/test-syntax-highlighting": "^0.0.7"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  }
+}
