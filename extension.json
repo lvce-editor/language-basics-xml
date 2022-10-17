@@ -70,6 +70,7 @@
         ".xsd",
         ".xul"
       ],
+      "fileNames": [".project"],
       "tokenize": "src/tokenizeXml.js"
     }
   ]
