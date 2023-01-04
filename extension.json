@@ -68,7 +68,8 @@
         ".xoml",
         ".xpdl",
         ".xsd",
-        ".xul"
+        ".xul",
+        ".tmtheme"
       ],
       "fileNames": [".project"],
       "tokenize": "src/tokenizeXml.js"
