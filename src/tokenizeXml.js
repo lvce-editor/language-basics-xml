@@ -205,6 +205,9 @@ export const tokenizeLine = (line, lineState) => {
         } else if ((next = part.match(RE_ANGLE_BRACKET_CLOSE))) {
           token = TokenType.PunctuationTag
           state = State.TopLevelContent
+        } else if ((next = part.match(RE_DOUBLE_QUOTE))) {
+          token = TokenType.PunctuationString
+          state = State.InsideDoubleQuoteString
         } else if ((next = part.match(RE_TAG_TEXT))) {
           token = TokenType.Text
           state = State.TopLevelContent
