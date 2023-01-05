@@ -83,6 +83,7 @@ const RE_TAGNAME = /^[!\w\-]+/
 const RE_TEXT = /^[^<>\n]+/
 const RE_WHITESPACE = /^\s+/
 const RE_WORD = /^[^\s]+/
+const RE_QUESTION_MARK_TAG_NAME = /^\?\w+/
 
 export const initialLineState = {
   state: State.TopLevelContent,
@@ -143,6 +144,9 @@ export const tokenizeLine = (line, lineState) => {
         } else if ((next = part.match(RE_ANGLE_BRACKET_CLOSE))) {
           token = TokenType.PunctuationTag
           state = State.TopLevelContent
+        } else if ((next = part.match(RE_QUESTION_MARK_TAG_NAME))) {
+          token = TokenType.TagName
+          state = State.InsideOpeningTag
         } else if ((next = part.match(RE_ANY_TEXT))) {
           token = TokenType.Text
           state = State.TopLevelContent
