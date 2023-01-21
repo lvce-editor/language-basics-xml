@@ -71,7 +71,7 @@
         ".xul",
         ".tmtheme"
       ],
-      "fileNames": [".project"],
+      "fileNames": [".project", "resources.grd"],
       "tokenize": "src/tokenizeXml.js"
     }
   ]
