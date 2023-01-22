@@ -69,7 +69,8 @@
         ".xpdl",
         ".xsd",
         ".xul",
-        ".tmtheme"
+        ".tmtheme",
+        ".mm"
       ],
       "fileNames": [".project", "resources.grd"],
       "tokenize": "src/tokenizeXml.js"
