@@ -56,7 +56,7 @@ export const TokenMap = {
 const RE_ANGLE_BRACKET_CLOSE = /^>/
 const RE_ANGLE_BRACKET_ONLY = /^</
 const RE_ANGLE_BRACKET_OPEN = /^</
-const RE_ANGLE_BRACKET_OPEN_TAG = /^<(?!\s)/
+const RE_ANGLE_BRACKET_OPEN_TAG = /^<(?![\s!])/
 const RE_ANY_TEXT = /^[^\n]+/
 const RE_ATTRIBUTE_NAME = /^[a-zA-Z\d\-\:\_]+/
 const RE_BLOCK_COMMENT_CONTENT = /^.(?:.*?)(?=-->|$)/s
@@ -84,6 +84,9 @@ const RE_TEXT = /^[^<>\n]+/
 const RE_WHITESPACE = /^\s+/
 const RE_WORD = /^[^\s]+/
 const RE_QUESTION_MARK_TAG_NAME = /^\?\w+/
+const RE_BLOCK_COMMENT_CONTENT_1 = /^.+?(?=-->)/s
+const RE_BLOCK_COMMENT_CONTENT_2 = /^.+$/s
+const RE_SPECIAL_TAG = /^<!(?=\w)/
 
 export const initialLineState = {
   state: State.TopLevelContent,
@@ -123,9 +126,15 @@ export const tokenizeLine = (line, lineState) => {
         } else if ((next = part.match(RE_TEXT))) {
           token = TokenType.Text
           state = State.TopLevelContent
+        } else if ((next = part.match(RE_BLOCK_COMMENT_START))) {
+          token = TokenType.Comment
+          state = State.InsideBlockComment
         } else if ((next = part.match(RE_ANGLE_BRACKET_CLOSE))) {
           token = TokenType.Text
           state = State.TopLevelContent
+        } else if ((next = part.match(RE_SPECIAL_TAG))) {
+          token = TokenType.PunctuationTag
+          state = State.AfterOpeningAngleBracket
         } else if ((next = part.match(RE_ANGLE_BRACKET_OPEN))) {
           token = TokenType.Text
           state = State.TopLevelContent
@@ -280,12 +289,15 @@ export const tokenizeLine = (line, lineState) => {
         }
         break
       case State.InsideBlockComment:
-        if ((next = part.match(RE_BLOCK_COMMENT_CONTENT))) {
+        if ((next = part.match(RE_BLOCK_COMMENT_CONTENT_1))) {
           token = TokenType.Comment
           state = State.InsideBlockComment
         } else if ((next = part.match(RE_BLOCK_COMMENT_END))) {
           token = TokenType.Comment
           state = State.TopLevelContent
+        } else if ((next = part.match(RE_BLOCK_COMMENT_CONTENT_2))) {
+          token = TokenType.Comment
+          state = State.InsideBlockComment
         } else {
           throw new Error('no')
         }
