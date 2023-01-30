@@ -56,7 +56,8 @@ export const TokenMap = {
 const RE_ANGLE_BRACKET_CLOSE = /^>/
 const RE_ANGLE_BRACKET_ONLY = /^</
 const RE_ANGLE_BRACKET_OPEN = /^</
-const RE_ANGLE_BRACKET_OPEN_TAG = /^<(?![\s!])/
+const RE_ANGLE_BRACKET_OPEN_TAG = /^<(?![\s!\?])/
+const RE_ANGLE_BRACKET_QUESTION_MARK = /^<\?/
 const RE_ANY_TEXT = /^[^\n]+/
 const RE_ATTRIBUTE_NAME = /^[a-zA-Z\d\-\:\_]+/
 const RE_BLOCK_COMMENT_CONTENT = /^.(?:.*?)(?=-->|$)/s
@@ -74,6 +75,7 @@ const RE_NOT_TAGNAME = /^[^a-zA-Z\d]+/
 const RE_PUNCTUATION = /^[<;'".,]/
 const RE_PUNCTUATION_SELF_CLOSING = /^\/>/
 const RE_SELF_CLOSING = /^\/>/
+const RE_QUESTION_MARK_CLOSING = /^\?>/
 const RE_SINGLE_QUOTE = /^'/
 const RE_SLASH = /^\//
 const RE_STRING_DOUBLE_QUOTE_CONTENT = /^[^"]+/
@@ -135,6 +137,9 @@ export const tokenizeLine = (line, lineState) => {
         } else if ((next = part.match(RE_SPECIAL_TAG))) {
           token = TokenType.PunctuationTag
           state = State.AfterOpeningAngleBracket
+        } else if ((next = part.match(RE_ANGLE_BRACKET_QUESTION_MARK))) {
+          token = TokenType.PunctuationTag
+          state = State.AfterOpeningAngleBracket
         } else if ((next = part.match(RE_ANGLE_BRACKET_OPEN))) {
           token = TokenType.Text
           state = State.TopLevelContent
@@ -166,6 +171,9 @@ export const tokenizeLine = (line, lineState) => {
         break
       case State.InsideOpeningTag:
         if ((next = part.match(RE_ANGLE_BRACKET_CLOSE))) {
+          token = TokenType.PunctuationTag
+          state = State.TopLevelContent
+        } else if ((next = part.match(RE_QUESTION_MARK_CLOSING))) {
           token = TokenType.PunctuationTag
           state = State.TopLevelContent
         } else if ((next = part.match(RE_EXCLAMATION_MARK))) {
@@ -213,6 +221,9 @@ export const tokenizeLine = (line, lineState) => {
           token = TokenType.AttributeName
           state = State.AfterAttributeName
         } else if ((next = part.match(RE_SELF_CLOSING))) {
+          token = TokenType.PunctuationTag
+          state = State.TopLevelContent
+        } else if ((next = part.match(RE_QUESTION_MARK_CLOSING))) {
           token = TokenType.PunctuationTag
           state = State.TopLevelContent
         } else if ((next = part.match(RE_ANGLE_BRACKET_CLOSE))) {

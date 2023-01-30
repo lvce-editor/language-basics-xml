@@ -12,7 +12,6 @@ Punctuation
 PunctuationString
 String
 PunctuationString
-Text
 PunctuationTag
 NewLine
 PunctuationTag
