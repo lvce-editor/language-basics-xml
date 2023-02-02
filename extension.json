@@ -70,7 +70,9 @@
         ".xsd",
         ".xul",
         ".tmtheme",
-        ".mm"
+        ".mm",
+        ".tmDragCommand",
+        ".tmCommand"
       ],
       "fileNames": [".project", "resources.grd"],
       "tokenize": "src/tokenizeXml.js"
