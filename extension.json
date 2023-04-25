@@ -72,7 +72,8 @@
         ".tmtheme",
         ".mm",
         ".tmDragCommand",
-        ".tmCommand"
+        ".tmCommand",
+        ".natvis"
       ],
       "fileNames": [".project", "resources.grd"],
       "tokenize": "src/tokenizeXml.js"
