@@ -73,7 +73,8 @@
         ".mm",
         ".tmDragCommand",
         ".tmCommand",
-        ".natvis"
+        ".natvis",
+        ".xcscheme"
       ],
       "fileNames": [".project", "resources.grd"],
       "tokenize": "src/tokenizeXml.js"
