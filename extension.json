@@ -75,7 +75,8 @@
         ".tmCommand",
         ".natvis",
         ".xcscheme",
-        ".xcsettings"
+        ".xcsettings",
+        ".xsl"
       ],
       "fileNames": [".project", "resources.grd"],
       "tokenize": "src/tokenizeXml.js"
