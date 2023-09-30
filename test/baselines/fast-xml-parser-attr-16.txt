@@ -1,0 +1,16 @@
+PunctuationTag
+TagName
+Whitespace
+AttributeName
+Whitespace
+AttributeName
+Punctuation
+PunctuationString
+String
+PunctuationString
+PunctuationTag
+PunctuationTag
+PunctuationTag
+TagName
+PunctuationTag
+NewLine

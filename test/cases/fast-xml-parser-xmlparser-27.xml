@@ -1,0 +1,8 @@
+<tag>before
+        + "    <subtag>subtag text</subtag>"
+        + "    middle"
+        + "    <self />"
+        + "    after self"
+        + "    <subtag2>subtag text</subtag2>"
+        + "    after"
+</tag>

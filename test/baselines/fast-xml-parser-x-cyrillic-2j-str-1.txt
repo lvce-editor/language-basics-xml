@@ -1,0 +1,3 @@
+PunctuationTag
+Text
+NewLine

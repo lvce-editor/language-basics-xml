@@ -1,0 +1,17 @@
+PunctuationTag
+TagName
+Whitespace
+AttributeName
+Whitespace
+Text
+Text
+Text
+Text
+Text
+Text
+Text
+Text
+Text
+Text
+Text
+NewLine
