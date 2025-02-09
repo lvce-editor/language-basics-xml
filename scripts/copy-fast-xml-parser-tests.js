@@ -7,7 +7,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const root = path.join(__dirname, '..')
 
 const REPO = 'https://github.com/NaturalIntelligence/fast-xml-parser'
-const COMMIT = '9504facf504216a83472cce10c8f65a9d37dbb72'
+const COMMIT = 'eadeb7e539758a7b85648ce42e0a6d69d1c3478b'
 
 const getTestName = (baseName, index) => {
   return (
