@@ -78,8 +78,12 @@
         ".xcsettings",
         ".xsl"
       ],
-      "fileNames": [".project", "resources.grd"],
+      "fileNames": [
+        ".project",
+        "resources.grd"
+      ],
       "tokenize": "src/tokenizeXml.js"
     }
-  ]
+  ],
+  "repository": "https://github.com/lvce-editor/language-basics-xml"
 }
