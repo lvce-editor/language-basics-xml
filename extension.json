@@ -78,10 +78,7 @@
         ".xcsettings",
         ".xsl"
       ],
-      "fileNames": [
-        ".project",
-        "resources.grd"
-      ],
+      "fileNames": [".project", "resources.grd"],
       "tokenize": "src/tokenizeXml.js"
     }
   ],
