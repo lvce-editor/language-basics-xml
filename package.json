@@ -5,18 +5,21 @@
   "type": "module",
   "scripts": {
     "dev": "node ./node_modules/@lvce-editor/server/bin/server.js ./test/cases --only-extension=.",
-    "lint": "eslint . && prettier --check .",
+    "lint": "eslint . && prettier --check . && knip --no-config-hints",
     "test": "test-syntax-highlighting"
   },
   "author": "Lvce Editor",
   "license": "MIT",
   "devDependencies": {
     "@lvce-editor/eslint-config": "^17.6.0",
+    "@lvce-editor/eslint-plugin-github-actions": "^17.7.0",
     "@lvce-editor/package-extension": "^3.2.0",
     "@lvce-editor/server": "^0.70.20",
+    "@lvce-editor/shared-process": "^0.70.27",
     "@lvce-editor/test-syntax-highlighting": "^1.3.0",
     "eslint": "^10.8.0",
     "execa": "^9.6.1",
+    "knip": "^6.29.0",
     "prettier": "^3.8.0",
     "typescript": "^6.0.0"
   },
