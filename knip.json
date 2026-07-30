@@ -1,0 +1,5 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "entry": ["scripts/*.js", "src/tokenizeXml.js"],
+  "project": ["scripts/*.js", "src/*.js"]
+}
