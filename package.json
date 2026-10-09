@@ -13,8 +13,8 @@
   "devDependencies": {
     "@lvce-editor/eslint-config": "^18.14.2",
     "@lvce-editor/package-extension": "^3.2.0",
-    "@lvce-editor/server": "^0.103.19",
-    "@lvce-editor/shared-process": "^0.103.19",
+    "@lvce-editor/server": "^0.121.10",
+    "@lvce-editor/shared-process": "^0.121.10",
     "@lvce-editor/test-syntax-highlighting": "^1.3.0",
     "eslint": "^10.12.0",
     "execa": "^9.6.1",
